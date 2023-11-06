@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  width: 600px;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.taskBox {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 3.6px 8.8px 6.7px rgba(0, 0, 0, 0.093),
+    7.4px 18.3px 22.6px rgba(0, 0, 0, 0.137),
+    21px 52px 101px rgba(0, 0, 0, 0.23);
+}
+ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style-position: inside;
+  padding-left: 0;
+  box-sizing: content-box;
+  margin: 0;
+}
+span {
+  font-size: 5rem;
+  color: rgb(157, 118, 118);
+}
+input {
+  font-size: 1.8rem;
+  width: 100%;
+  border: none;
+  font-weight: 100;
+  box-sizing: border-box; /* add this */
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 20px;
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 15px;
+}
+input::placeholder {
+  opacity: 20%;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
+}
+input:focus {
+  border: none;
+  font-weight: 100;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+}
+li {
+  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 50px;
+  padding-right: 20px;
+  border-top: solid 1px;
+  border-color: lightgrey;
+}
+.taskCounter {
+  float: left;
+  width: 100%;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-top: solid 1px;
+  border-color: lightgrey;
+  color: grey;
+}
+button{
+  font-size: 1.3rem;
+  color: indianred;
+  border: none;
+  background: none;
+  margin:0px;
+  padding:0px;
+  
+}
+.deleteButton {
+  display: none;
+  box-sizing: border-box;
+  margin:0px;
+  padding:0px;
+}
+.taskLi:hover > .deleteButton {
+  display:contents;
+  font-size: 1.5rem;
+  color: indianred;
+  border: none;
+  background: none;
+  padding:0px;
+  
+}
+button:hover {
+  color: red;
+}
+.taskBox {
+  background: #fff;
+  padding: 30px;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.taskBox,
+.taskBox::before,
+.taskBox::after {
+  /* Styles to distinguish sheets from one another */
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+  border: 1px solid #bbb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.taskBox::before,
+.taskBox::after {
+  content: "";
+  position: absolute;
+  height: 95%;
+  width: 99%;
+  background-color: #eee;
+}
+
+.taskBox::before {
+  right: 15px;
+  top: 0;
+  transform: rotate(-1deg);
+  z-index: -1;
+}
+
+.taskBox::after {
+  top: 5px;
+  right: -5px;
+  transform: rotate(1deg);
+  z-index: -2;
 }
